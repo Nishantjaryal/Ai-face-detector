@@ -141,8 +141,8 @@ margin-bottom: 10px;
   }
 
   #page1{
-    background: linear-gradient(-45deg,#a73cff ,#6e51ff,#ff2faf);
     background-image: url("./public/f4a7f380-1b5e-4820-841e-a82e46706ec8.jpg");
+    background-color: linear-gradient(-45deg,#a73cff ,#6e51ff,#ff2faf);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
