@@ -19,8 +19,8 @@ canvas {
 
   
   #bgvid {
-    max-height: 400px;
     height: fit-content;
+    width: fit-content;
     border-radius: 10px;
     overflow: hidden;
   }
