@@ -1,0 +1,43 @@
+.input-group {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-items: center;
+  }
+  
+  .input-link {
+    min-height: 50px;
+    max-width: 210px;
+    padding: 0 1rem;
+    color: #333131;
+    font-size: 15px;
+    border: 1px solid #5e4dcd;
+    border-radius: 6px 0 0 6px;
+    background-color: transparent;
+    outline:none;
+    display: block;
+  }
+  
+  .button--submit {
+    min-height: 50px;
+    padding: .5em 1em;
+    border: none;
+    border-radius: 0 6px 6px 0;
+    background-color: #5e4dcd;
+    color: #fff;
+    font-size: 15px;
+    cursor: pointer;
+    min-width:80px;
+    transition: background-color .3s ease-in-out;
+    display: block;
+  }
+  
+  .button--submit:hover {
+    background-color: #5e5dcd;
+  }
+  
+  .input:focus, .input:focus-visible {
+    border-color: #3898EC;
+    outline: none;
+  }
+  

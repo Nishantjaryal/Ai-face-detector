@@ -4,6 +4,12 @@ body{
   overflow: visible;
 }
 
+.p{
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin: 20px 0 0 0;
+}
 
 
 canvas {
@@ -105,10 +111,16 @@ canvas {
     padding: 40px 0;
 }
 
+img{
+  display: block;
+  width: 100%;
+  min-width : 300px;
+  object-fit: contain;
+  object-position: center;
+}
 
 .resultImage{
-  max-height:400px ;
-}
+max-height: 400px;}
 
   .absolute-tl{
     position: absolute;

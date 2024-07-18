@@ -1,30 +1,12 @@
 const picContainer = document.getElementById("picContainer")
 const PicPicker = document.getElementById("PicPicker")
 const myfile = document.getElementById("file")
-// const retake = document.getElementById("retake")
+const labels = document.querySelectorAll(".label")
 
-// retake.addEventListener("click",()=>{
-//     restart()
-// })
-
-
-// function restart() {             // ?
-//     PicPicker.style.display = "block"
-//     picContainer.style.display = "none"
-//     picContainer.innerHTML = '<img src="./public/undraw_Upload_re_pasx.png" id="pic" width="720" height="560"></img>'
-    
-
-// }
+// const linkRunner = document.getElementById("link-runner")
+// const url = document.getElementById("url")
 
 
-PicPicker.addEventListener("click", () => {
-    PicPicker.style.display = "none"
-    picContainer.style.display = "block"
-})
-
-
-
-const imageUpload = document.getElementById('file')
 
 Promise.all([
     faceapi.nets.tinyFaceDetector.loadFromUri('/models'),
@@ -36,10 +18,51 @@ Promise.all([
     setup()
 })
 
+
+
+
+// linkRunner.addEventListener("click", () => {
+//     PicPicker.style.display = "none"
+//     picContainer.innerHTML = ""
+//     picContainer.style.display = "block"
+
+
+//     let imgElement = document.createElement('img');
+
+//     if (url.value !== "") {
+//         const imgElement = document.createElement('img');
+//                     imgElement.classList.add("resultImage")
+//                     imgElement.src = url.value;
+//                     file = imgElement
+//                     console.log(file)
+//                     runModel(file)
+//                     picContainer.innerHTML = ""
+//                     picContainer.appendChild(imgElement);
+//     }
+//     else {
+
+//         imgElement.src = "./public/undraw_Page_not_found_re_e9o6.png";
+//         picContainer.appendChild(imgElement);
+
+//     }
+
+// })
+
+
+labels.forEach((label) => {
+    label.addEventListener("click", () => {
+        PicPicker.style.display = "none"
+        picContainer.style.display = "block"
+    })
+})
+
+
+
+
 function setup() {
     console.log("ready")
     myfile.addEventListener("change", (event) => {
-        let file = "h";
+        let file = "";
         const files = event.target.files
         for (const image of files) {
             if (image.type.startsWith('image/')) {
@@ -49,6 +72,7 @@ function setup() {
                     imgElement.classList.add("resultImage")
                     imgElement.src = e.target.result;
                     file = imgElement
+                    console.log(file)
                     runModel(file)
                     picContainer.innerHTML = ""
                     picContainer.appendChild(imgElement);
@@ -65,7 +89,10 @@ function setup() {
 }
 
 
+
 function runModel(file) {
+
+
 
     console.log("init machine learning models")
 
@@ -88,12 +115,42 @@ function runModel(file) {
             canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height)
             faceapi.draw.drawDetections(canvas, resizedDetections)
             faceapi.draw.drawFaceExpressions(canvas, resizedDetections)
-            faceapi.draw.drawFaceLandmarks(canvas,resizedDetections)   // NOT WORK WELL WITH RESPONSIVENESS
-            
+            faceapi.draw.drawFaceLandmarks(canvas, resizedDetections)   // NOT WORK WELL WITH RESPONSIVENESS
+
             console.log("DONE!")
-        },0);
+        }, 0);
     })
 }
+
+
+
+// async function linkImageModel(file) {
+
+//     file.addEventListener('load', async () => {
+
+//         const canvas = await faceapi.createCanvasFromMedia(file)
+//         document.body.append(canvas)
+//         const displaySize = { width: file.width, height: file.height }
+//         faceapi.matchDimensions(canvas, displaySize)
+
+//         console.log("model running")
+
+//         setTimeout(async () => {     // pass element here to detect the face
+//             const detections = await faceapi.detectAllFaces(file,
+//                 new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withFaceExpressions()
+
+//             console.log(detections)
+
+//             const resizedDetections = faceapi.resizeResults(detections, displaySize)
+//             canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height)
+//             faceapi.draw.drawDetections(canvas, resizedDetections)
+//             faceapi.draw.drawFaceExpressions(canvas, resizedDetections)
+//             faceapi.draw.drawFaceLandmarks(canvas, resizedDetections)   // NOT WORK WELL WITH RESPONSIVENESS
+
+//             console.log("DONE!")
+//         }, 0);
+//     })
+// }
 
 
 
