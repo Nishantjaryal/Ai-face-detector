@@ -42,6 +42,15 @@ body {
   display: none;
 }
 
+.start{
+  /* align-items: flex-start; */
+  justify-content: flex-start;
+}
+
+.pt25{
+  padding-top:25vh ;
+}
+
 .container {
   height: 100%;
   width: 70%;
@@ -76,7 +85,7 @@ margin-bottom: 10px;
     background : linear-gradient(90deg,#a12fff ,#38bcd6,#5b3aff,#ff2faf);
     background-position: 0%;
     background-size: 200%;
-
+    z-index: 9;
     position: absolute;
       color: white;
       top: 20px;
@@ -90,6 +99,8 @@ margin-bottom: 10px;
 
   }
   #Start_button{
+    z-index: 9;
+
     width: fit-content;
     padding: 10px 20px;
     background : linear-gradient(90deg,#a73cff ,#3897d6,#6e51ff,#ff2faf);
