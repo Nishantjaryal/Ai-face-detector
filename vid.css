@@ -20,7 +20,7 @@ canvas {
   
   #bgvid {
     height: fit-content;
-    /* width: fit-content; */
+    /* width: fit-content;w */
     border-radius: 10px;
     overflow: hidden;
   }
