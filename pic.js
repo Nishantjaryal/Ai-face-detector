@@ -31,6 +31,18 @@ linkRunner.addEventListener("click", () => {
         picContainer.innerHTML = imgElementCode
         const file = document.getElementById("resultImage")
         runModel(file)
+
+        // OR
+
+        // const image = new Image();
+        // image.crossOrigin = 'anonymous';
+        // image.src = 'https://example.com/image.png';
+        // image.onload = function() {
+        //   const texture = gl.createTexture();
+        //   gl.bindTexture(gl.TEXTURE_2D, texture);
+        //   gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, image);
+        //   gl.generateMipmap(gl.TEXTURE_2D);
+        // };
     }
     else {
 
